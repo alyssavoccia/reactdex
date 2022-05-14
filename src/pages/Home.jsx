@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import PokemonContext from '../context/PokemonContext';
 
 function Home() {
@@ -70,20 +71,22 @@ function Home() {
       <section className='pokemonContainer'>
         <div className="pokemonCardContainer">
           {pokemonList && pokemonList.map(pokemon => (
-            <div className='pokemonCard' key={pokemon.name} style={{background: `radial-gradient(circle at 50% 0%, ${pokemonTypeColors[pokemon.types[0].type.name]} 36%, #FFF 36%)`}}>
-              <div className="cardHeader">
-                <span className='pokemonId'>#{pokemon.id}</span>
-                <img className='pokemonImg' src={pokemon.sprites.front_default} alt={pokemon.name} />
-              </div>
-              <div className="cardBody">
-                <div className="pokeTypes">
-                  {pokemon.types.map((type, index) => (
-                    <span key={index} className="pokeType" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
-                  ))}
+            <Link to={`/pokemon/${pokemon.name}`}>
+              <div className='pokemonCard' key={pokemon.name} style={{background: `radial-gradient(circle at 50% 0%, ${pokemonTypeColors[pokemon.types[0].type.name]} 36%, #FFF 36%)`}}>
+                <div className="cardHeader">
+                  <span className='pokemonId'>#{pokemon.id}</span>
+                  <img className='pokemonImg' src={pokemon.sprites.front_default} alt={pokemon.name} />
                 </div>
-                <p className="pokeName">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
+                <div className="cardBody">
+                  <div className="pokeTypes">
+                    {pokemon.types.map((type, index) => (
+                      <span key={index} className="pokeType" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
+                    ))}
+                  </div>
+                  <p className="pokeName">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <button className='btn btnPrimary showMore' onClick={handleShowMorePokemon}>Show More</button>

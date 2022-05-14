@@ -19,6 +19,10 @@ body {
   min-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 input,
 button {
   border: none;
@@ -28,6 +32,7 @@ button {
 
 input {
   padding: 7px 15px;
+  width: 250px;
 }
 
 input:focus {
@@ -126,7 +131,7 @@ input:focus {
   position: absolute;
   top:0; 
   transition: all 1s;
-  -webkit-transition: all .3s;
+  -webkit-transition: all .2s;
   width: 100%;
 }
 

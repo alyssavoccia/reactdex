@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Pokemon from './pages/Pokemon';
 
 function App() {
   const { dispatch } = useContext(PokemonContext);
@@ -29,6 +30,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/pokemon/:pokemonName' element={<Pokemon />} />
       </Routes>
     </div>
   );
