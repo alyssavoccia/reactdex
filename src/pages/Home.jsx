@@ -62,12 +62,6 @@ function Home() {
 
   return (
     <main>
-      <section className="searchPokemon">
-        <div className="inputFields">
-          <input type="text" placeholder="Search Pokemon" />
-          <button className="btn btnPrimary">Generate Random Pokemon</button>
-        </div>
-      </section>
       <section className='pokemonContainer'>
         <div className="pokemonCardContainer">
           {pokemonList && pokemonList.map(pokemon => (
