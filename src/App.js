@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
@@ -8,7 +8,6 @@ function App() {
   const { dispatch } = useContext(PokemonContext);
 
   useEffect(() => {
-    // Get all pokemon and save to state
     const pokemonList = [];
     const getAllPokemon = () => {
       for (let i = 1; i <= 151; i++) {

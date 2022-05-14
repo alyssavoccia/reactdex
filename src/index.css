@@ -10,6 +10,7 @@
 }
 
 html {
+  overflow-x: hidden;
   min-width: 100%;
 }
 
@@ -98,7 +99,7 @@ input:focus {
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
   margin: 2rem auto;
   max-width: 1300px;
@@ -108,9 +109,29 @@ input:focus {
   align-items: center;
   background-color: #FFF;
   border-radius: 3px;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 300px;
+}
+
+.pokemonCard:after {
+  background:rgba(45, 52, 54,0.2);
+  content: '\A';
+  height:100%;
+  left:0;
+  opacity: 0;
+  position: absolute;
+  top:0; 
+  transition: all 1s;
+  -webkit-transition: all .3s;
+  width: 100%;
+}
+
+.pokemonCard:hover:after {
+  opacity: 1;
 }
 
 .cardHeader {
