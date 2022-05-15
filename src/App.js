@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Pokedex from './pages/Pokedex';
+import Locations from './pages/Locations';
+import Berries from './pages/Berries';
 import Pokemon from './pages/Pokemon';
 
 function App() {
@@ -30,7 +33,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/pokemon' element={<Pokedex />} />
         <Route path='/pokemon/:pokemonName' element={<Pokemon />} />
+        <Route path='/locations' element={<Locations />} />
+        <Route path='/berries' element={<Berries />} />
       </Routes>
     </div>
   );
