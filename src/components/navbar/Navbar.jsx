@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import pokeball from '../assets/pokeball.png';
+import logo from '../../assets/logo.png';
+import pokeball from '../../assets/pokeball.png';
+import './navbar.scss';
 
 function Navbar() {
   const navigate = useNavigate();

@@ -1,10 +1,10 @@
 import { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Pokedex from './pages/Pokemon';
-import Pokemon from './pages/PokemonInfo';
+import Navbar from './components/navbar/Navbar';
+import Home from './pages/home/Home';
+import Pokedex from './pages/pokemon/Pokemon';
+import Pokemon from './pages/pokemon-info/PokemonInfo';
 import Locations from './pages/Locations';
 import Berries from './pages/Berries';
 import Moves from './pages/Moves';
@@ -18,12 +18,12 @@ function App() {
     const pokemonList = [];
     const pokemonSpeciesList = [];
     const getAllPokemon = () => {
-      for (let i = 1; i <= 151; i++) {
+      for (let i = 1; i <= 898; i++) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then(response => response.json())
         .then(data => {
           pokemonList.push(data);
-          if (pokemonList.length <= 151) {
+          if (pokemonList.length <= 898) {
             dispatch({ type: 'ADD_POKEMON', payload: pokemonList });
           }
         });
@@ -31,7 +31,7 @@ function App() {
         .then(response => response.json())
         .then(data => {
           pokemonSpeciesList.push(data);
-          if (pokemonSpeciesList.length <= 151) {
+          if (pokemonSpeciesList.length <= 898) {
             dispatch({ type: 'ADD_POKEMON_SPECIES', payload: pokemonSpeciesList });
           }
         });

@@ -1,15 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import PokemonContext from '../context/PokemonContext';
+import PokemonContext from '../../context/PokemonContext';
+import './pokemonInfo.scss';
 
 function Pokemon() {
   const { pokemon, pokemonSpecies } = useContext(PokemonContext);
   const params = useParams();
   const [currentPokemon, setCurrentPokemon] = useState(null);
   const [currentPokemonSpecies, setCurrentPokemonSpecies] = useState(null);
+  const [currentHeight, setCurrentHeight] = useState('');
+  const [currentWeight, setCurrentWeight] = useState('');
 
   const pokemonTypeColors = {
     bug: "#A3CB38",
+    dark: "#705848",
     dragon: "#8e44ad",
     electric: "#f1c40f",
     fairy: "#fd79a8",
@@ -29,14 +33,29 @@ function Pokemon() {
   };
 
   useEffect(() => {
-    if (pokemon && pokemonSpecies) {
-      pokemon.forEach(pokemon => (
-        params.pokemonName === pokemon.name && setCurrentPokemon(pokemon)
-      ));
+    const getHeight = () => {
+      const inches = currentPokemon.height * 3.937;
+      const feet = Math.floor(inches / 12);
+      const inchesLeft = Math.ceil(inches % 12);
+      return `${feet}' ${inchesLeft}"`;
+    };
 
-      pokemonSpecies.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemonSpecies(pokemon))
+    const getWeight = () => {
+      const pounds = (currentPokemon.weight / 4.536).toFixed(1);
+      return `${pounds} lbs`
+    };
+
+
+    if (pokemon && pokemonSpecies) {
+      pokemon.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemon(pokemon));
+      pokemonSpecies.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemonSpecies(pokemon));
     }
-  }, [params, pokemon, pokemonSpecies]);
+
+    if (currentPokemon && currentPokemonSpecies) {
+      setCurrentHeight(getHeight());
+      setCurrentWeight(getWeight());
+    }
+  }, [currentPokemon, currentPokemonSpecies, params, pokemon, pokemonSpecies]);
 
   if (!currentPokemon) {
     return <h1>Loading</h1>
@@ -60,6 +79,16 @@ function Pokemon() {
               ))}
             </div>
             <p className="pokemonInfoText">{currentPokemonSpecies.flavor_text_entries[0].flavor_text}</p>
+            <div className="pokemonBasicInfo">
+              <div className="pokemonCharacteristic">
+                <p className="basicInfoLabel">Height</p>
+                <p className="basicInfoText">{currentHeight}</p>
+              </div>
+              <div className="pokemonCharacteristic">
+                <p className="basicInfoLabel">Weight</p>
+                <p className="basicInfoText">{currentWeight}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

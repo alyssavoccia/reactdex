@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import PokemonContext from '../context/PokemonContext';
+import PokemonContext from '../../context/PokemonContext';
+import './pokemon.scss';
 
 function Pokemon() {
   const { pokemon } = useContext(PokemonContext);
@@ -11,6 +12,7 @@ function Pokemon() {
 
   const pokemonTypeColors = {
     bug: "#A3CB38",
+    dark: "#705848",
     dragon: "#8e44ad",
     electric: "#f1c40f",
     fairy: "#fd79a8",

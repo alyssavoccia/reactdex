@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import pokemonIcon from '../assets/pokemonIcon.png';
-import mapIcon from '../assets/mapIcon.png';
-import berryIcon from '../assets/berryIcon.png';
-import movesIcon from '../assets/movesIcon.png';
-import abilitiesIcon from '../assets/abilitiesIcon.png';
-import itemsIcon from '../assets/itemsIcon.png';
+import pokemonIcon from '../../assets/pokemonIcon.png';
+import mapIcon from '../../assets/mapIcon.png';
+import berryIcon from '../../assets/berryIcon.png';
+import movesIcon from '../../assets/movesIcon.png';
+import abilitiesIcon from '../../assets/abilitiesIcon.png';
+import itemsIcon from '../../assets/itemsIcon.png';
+import './home.scss';
 
 function Home() {
   return (
