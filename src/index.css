@@ -19,6 +19,13 @@ body {
   min-width: 100%;
 }
 
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .container {
   max-width: 1200px;
 }
@@ -66,13 +73,22 @@ section {
   margin: 2rem 0;
 }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
+/* ========== */
+/* = NAVBAR = */
+/* ========== */
+header{
+  margin: 0 auto;
   position: relative;
-  min-width: 100%;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 1rem auto 0 auto;
+  position: relative;
+  max-width: 1200px;
 }
 
 .navbarPokeball {
@@ -89,22 +105,22 @@ section {
   cursor: pointer;
 }
 
-/* SEARCH BAR */
-.searchPokemon {
-  display: flex;
-  justify-content: center;
-}
-
 .inputFields {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+  height: 40px;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-/* HOME */
+/* ========== */
+/* == HOME == */
+/* ========== */
 .home {
   display: flex;
   justify-content: center;
+  margin-top: 5rem;
 }
 
 .optionsContainer {
@@ -118,6 +134,7 @@ section {
 .option {
   align-items: center;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   gap: 1rem;
   height: 70px;
@@ -171,7 +188,9 @@ section {
   width: 84px;
 }
 
-/* POKEMON CARDS */
+/* =========== */
+/* = POKEMON = */
+/* =========== */
 .pokemonContainer {
   align-items: center;
   display: flex;
@@ -265,8 +284,18 @@ section {
   text-align: center;
 }
 
+
+/* ============= */
 /* MEDIA QUERIES */
+/* ============= */
 @media (min-width: 768px) {
+  /* ============= */
+  /* == NAVBAR === */
+  /* ============= */
+  .navbar {
+    flex-direction: row;
+  }
+
   .navbarPokeball {
     height: 75px;
     right: -1rem;
@@ -276,9 +305,13 @@ section {
 
   .inputFields {
     flex-direction: row;
+    gap: 1rem;
+    margin-top: 0;
   }
 
-  /* HOME */
+  /* ============= */
+  /* === HOME ==== */
+  /* ============= */
   .optionsContainer {
     gap: 2rem;
   }
