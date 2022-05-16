@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import pokeball from '../assets/pokeball.png';
+import pokemonIcon from '../assets/pokemonIcon.png';
 import mapIcon from '../assets/mapIcon.png';
 import berryIcon from '../assets/berryIcon.png';
 import movesIcon from '../assets/movesIcon.png';
@@ -14,7 +14,7 @@ function Home() {
           <div className="optionsContainer">
             <Link className="option optionPokemon" to='/pokemon'>
               <p className="optionTitle">Pokemon</p>
-              <img className='optionImg' src={pokeball} alt='Pokeball' />
+              <img className='optionImg' src={pokemonIcon} alt='Pokeball' />
             </Link>
             <Link className="option optionLocations" to='/locations'>
               <p className="optionTitle">Locations</p>
