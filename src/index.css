@@ -3,7 +3,7 @@
 /* UNIVERSAL STYLES */
 * {
   box-sizing: border-box;
-  color: #222;
+  color: #3d3d3d;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -284,6 +284,56 @@ header{
   text-align: center;
 }
 
+/* ================ */
+/* = POKEMON INFO = */
+/* ================ */
+.pokemon {
+  display: flex;
+  justify-content: center;
+  margin: 5rem auto;
+}
+
+.pokemonInfo {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.leftSide {
+  background-color: #ced6e0;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.pokemonInfoImg {
+  width: 250px;
+}
+
+.rightSide {
+  background-color: #FFF;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+  max-width: 500px;
+}
+
+.pokemonInfoName {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.pokemonInfoTypes {
+  justify-content: flex-start;
+}
+
+.pokemonInfoText {
+  margin-top: 1rem;
+}
 
 /* ============= */
 /* MEDIA QUERIES */

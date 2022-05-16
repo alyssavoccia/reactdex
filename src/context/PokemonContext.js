@@ -5,7 +5,8 @@ const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
   const initialState = {
-    pokemon: []
+    pokemon: [],
+    pokemonSpecies: []
   };
 
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
