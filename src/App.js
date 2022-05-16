@@ -3,10 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Pokedex from './pages/Pokedex';
+import Pokedex from './pages/Pokemon';
+import Pokemon from './pages/PokemonDetails';
 import Locations from './pages/Locations';
 import Berries from './pages/Berries';
-import Pokemon from './pages/Pokemon';
+import Moves from './pages/Moves';
+import Abilities from './pages/Abilities';
+import Items from './pages/Items';
 
 function App() {
   const { dispatch } = useContext(PokemonContext);
@@ -37,6 +40,9 @@ function App() {
         <Route path='/pokemon/:pokemonName' element={<Pokemon />} />
         <Route path='/locations' element={<Locations />} />
         <Route path='/berries' element={<Berries />} />
+        <Route path='/moves' element={<Moves />} />
+        <Route path='/abilities' element={<Abilities />} />
+        <Route path='/items' element={<Items />} />
       </Routes>
     </div>
   );

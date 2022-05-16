@@ -24,15 +24,15 @@ function Home() {
               <p className="optionTitle">Berries</p>
               <img className='optionImg' src={berryIcon} alt='Berry icon' />
             </Link>
-            <Link className="option optionMoves" to='/berries'>
+            <Link className="option optionMoves" to='/moves'>
               <p className="optionTitle">Moves</p>
               <img className='optionImg' src={movesIcon} alt='Berry icon' />
             </Link>
-            <Link className="option optionAbilities" to='/berries'>
+            <Link className="option optionAbilities" to='/abilities'>
               <p className="optionTitle">Abilities</p>
               <img className='optionImg' src={abilitiesIcon} alt='Berry icon' />
             </Link>
-            <Link className="option optionItems" to='/berries'>
+            <Link className="option optionItems" to='/items'>
               <p className="optionTitle">Items</p>
               <img className='optionImg' src={itemsIcon} alt='Berry icon' />
             </Link>
