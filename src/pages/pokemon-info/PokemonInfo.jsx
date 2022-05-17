@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PokemonContext from '../../context/PokemonContext';
+import ProgressBar from "@ramonak/react-progress-bar";
 import './pokemonInfo.scss';
 
-function Pokemon() {
+function PokemonInfo() {
   const { pokemon, pokemonSpecies } = useContext(PokemonContext);
   const params = useParams();
   const [currentPokemon, setCurrentPokemon] = useState(null);
@@ -91,9 +92,24 @@ function Pokemon() {
             </div>
           </div>
         </div>
+        <div className='stats-weaknesses container'>
+          <div className="stats">
+            <p className="statsTitle">Stats</p>
+            {currentPokemon.stats.map(stat => (
+              <div className="stat" key={stat.stat.name}>
+                <ProgressBar completed={stat.base_stat.toString()} bgColor="#2980b9" />
+                <p className="statTitle">{stat.stat.name}</p>
+              </div>
+              
+            ))}
+          </div>
+          <div className="weaknesses">
+            <p className="weaknessesTitle">Weaknesses</p>
+          </div>
+        </div>
       </section>
     </main>
   )
 }
 
-export default Pokemon;
+export default PokemonInfo;

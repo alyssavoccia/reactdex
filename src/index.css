@@ -10,12 +10,14 @@
 }
 
 html {
+  min-height: 100vh;
   overflow-x: hidden;
   min-width: 100%;
 }
 
 body {
   background: #eff3ff;
+  min-height: 100vh;
   min-width: 100%;
 }
 
