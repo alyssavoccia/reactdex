@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import PokemonContext from '../../context/PokemonContext';
-import './pokemon.scss';
+import PokemonContext from '../context/PokemonContext';
 
 function Pokemon() {
   const { pokemon } = useContext(PokemonContext);
@@ -62,24 +61,25 @@ function Pokemon() {
 
   return (
     <main>
-      <section className='container mx-auto'>
-        <div className="pokemonCardContainer">
+      <section className='container mt-8 mx-auto'>
+        <div className="flex flex-wrap gap-8 justify-center max-w-[1300px] mx-auto">
           {pokemonList && pokemonList.map(pokemon => (
-            <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
-              <div className='pokemonCard' style={{background: `radial-gradient(circle at 50% 0%, ${pokemonTypeColors[pokemon.types[0].type.name]} 36%, #FFF 36%)`}}>
-                <div className="cardHeader">
-                  <span className='pokemonId'>#{pokemon.id}</span>
-                  <img className='pokemonImg' src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <Link className='relative overflow-hidden shadow-lg' to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
+              <div className='flex flex-col rounded-md w-[300px]' style={{background: `radial-gradient(circle at 50% 0%, ${pokemonTypeColors[pokemon.types[0].type.name]} 36%, #FFF 36%)`}}>
+                <div>
+                  <span className='flex items-center bg-gray-800 text-white font-light justify-center text-sm absolute top-2 left-2 h-8 w-8 rounded-full'>#{pokemon.id}</span>
+                  <img className='mx-auto w-44' src={pokemon.sprites.front_default} alt={pokemon.name} />
                 </div>
                 <div className="cardBody">
-                  <div className="pokeTypes">
+                  <div className="flex gap-2 justify-center">
                     {pokemon.types.map((type, index) => (
                       <span key={index} className="pokeType" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
                     ))}
                   </div>
-                  <p className="pokeName">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
+                  <p className="text-lg text-center mt-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
                 </div>
               </div>
+              <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-slate-500 rounded-md"></div>
             </Link>
           ))}
         </div>

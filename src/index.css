@@ -17,12 +17,6 @@ input:focus {
   outline: none;
 }
 
-.pokeTypes {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
 .pokeType {
   border-radius: 20px;
   color: #FFF;
