@@ -36,10 +36,6 @@ body {
   max-width: 1200px;
 }
 
-a {
-  text-decoration: none;
-}
-
 input,
 button {
   border: none;
@@ -56,25 +52,6 @@ input:focus {
   outline: none;
 }
 
-/* .btn {
-  cursor: pointer;
-  padding: 7px 15px;
-}
-
-.btnPrimary {
-  background-color: #e74c3c;
-  border-bottom: 4px solid #c0392b;
-  color: #FFF;
-}
-
-.btnPrimary:hover {
-  background-color: #E95A4A;
-}
-
-.btnPrimary:active {
-  transform: scale(.98);
-} */
-
 .pokeTypes {
   display: flex;
   gap: 1rem;
@@ -88,36 +65,4 @@ input:focus {
   font-weight: 600;
   padding: 4px 8px;
   text-transform: uppercase;
-}
-
-/* ============= */
-/* MEDIA QUERIES */
-/* ============= */
-@media (min-width: 768px) {
-  /* ============= */
-  /* == NAVBAR === */
-  /* ============= */
-  .navbar {
-    flex-direction: row;
-  }
-
-  .navbarPokeball {
-    height: 75px;
-    right: -1rem;
-    top: -1.7rem;
-    width: 75px;
-  }
-
-  .inputFields {
-    flex-direction: row;
-    gap: 1rem;
-    margin-top: 0;
-  }
-
-  /* ============= */
-  /* === HOME ==== */
-  /* ============= */
-  .optionsContainer {
-    gap: 2rem;
-  }
 }

@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
-import Home from './pages/home/Home';
+import Home from './pages/Home';
 import Pokemon from './pages/pokemon/Pokemon';
 import PokemonInfo from './pages/pokemon-info/PokemonInfo';
 import Locations from './pages/Locations';
