@@ -10,8 +10,7 @@ function Home() {
   return (
     <main>
       <section className="mt-14">
-        <div className="sm:container mx-auto">
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 mx-auto justify-center max-w-5xl">
             <Link className="flex items-center rounded-sm shadow-md py-2 px-4 relative overflow-hidden h-16 w-64 transition duration-200 ease-in-out hover:opacity-90 bg-gradient-to-r from-red-600 to-red-500" to='/pokemon'>
               <p className="text-white font-bold text-md">Pokemon</p>
               <img className='absolute right-[-1.5rem] opacity-60 h-24 w-24' src={pokemonIcon} alt='Pokeball' />
@@ -37,7 +36,6 @@ function Home() {
               <img className='absolute right-[-1.5rem] opacity-60 h-24 w-24' src={itemsIcon} alt='Berry icon' />
             </Link>
           </div>
-        </div>
       </section>
     </main>
   )

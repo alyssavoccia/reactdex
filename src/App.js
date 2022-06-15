@@ -42,7 +42,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="h-screen">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

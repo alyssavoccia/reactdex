@@ -62,7 +62,7 @@ function Pokemon() {
 
   return (
     <main>
-      <section className='pokemonContainer'>
+      <section className='container mx-auto'>
         <div className="pokemonCardContainer">
           {pokemonList && pokemonList.map(pokemon => (
             <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>

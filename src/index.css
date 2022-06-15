@@ -6,46 +6,11 @@
 
 /* UNIVERSAL STYLES */
 * {
-  box-sizing: border-box;
-  color: #3d3d3d;
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 html {
-  min-height: 100vh;
-  overflow-x: hidden;
-  min-width: 100%;
-}
-
-body {
-  background: #eff3ff;
-  min-height: 100vh;
-  min-width: 100%;
-}
-
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.container {
-  max-width: 1200px;
-}
-
-input,
-button {
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
-}
-
-input {
-  padding: 7px 15px;
-  width: 250px;
+  background-color: #e2e8f0;
 }
 
 input:focus {
