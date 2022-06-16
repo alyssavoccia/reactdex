@@ -77,9 +77,11 @@ function PokemonInfoTabs({ currentPokemon }) {
               </p>
             </div>
             <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-              <p>
-                Moves
-              </p>
+            <ul class="flex flex-wrap gap-4">
+              {currentPokemon.moves.map(move => (
+                <li key={move.move.name} className='uppercase text-sm border-b border-slate-400'>{move.move.name.indexOf('-') >= 0 ? move.move.name.split('-').join(' ') : move.move.name}</li>
+              ))}
+            </ul>
             </div>
           </div>
         </div>
