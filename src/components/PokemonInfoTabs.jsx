@@ -36,7 +36,7 @@ function PokemonInfoTabs({ currentPokemon }) {
             href="#link2"
             role="tablist"
           >
-            Weaknesses
+            Abilities
           </a>
         </li>
         <li className="-mb-px mr-2 text-slate-500 last:mr-0 flex-auto text-center">
@@ -66,15 +66,18 @@ function PokemonInfoTabs({ currentPokemon }) {
                   <div key={stat.stat.name} className="w-full bg-gray-200 rounded-full">
                     <div className="bg-slate-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-l-full" style={{width: `${stat.base_stat.toString()}%`}}> {stat.base_stat.toString()}</div>
                   </div> 
-                  <p className='mt-0 uppercase text-sm'>{stat.stat.name}</p>
+                  <p className='mt-0 uppercase text-sm'>{stat.stat.name.indexOf('-') >= 0 ? stat.stat.name.split('-').join(' ') : stat.stat.name}</p>
                 </div>
               ))
               }
             </div>
             <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-              <p>
-                Weaknesses
-              </p>
+              <ul>
+                {currentPokemon.abilities.map(ability => (
+                  <li className="mt-2 uppercase">{ability.ability.name}</li>
+                ))
+                }
+              </ul>
             </div>
             <div className={openTab === 3 ? "block" : "hidden"} id="link3">
             <ul class="flex flex-wrap gap-4">
