@@ -151,7 +151,7 @@ function PokemonInfo() {
                   {currentPokemon.stats.map(stat => (
                     <div className='mb-4'>
                       <div key={stat.stat.name} class="w-full bg-gray-200 rounded-full">
-                        <div className="bg-slate-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-l-full" style={{width: `${stat.base_stat.toString()}%`}}> {stat.base_stat.toString()}%</div>
+                        <div className="bg-slate-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-l-full" style={{width: `${stat.base_stat.toString()}%`}}> {stat.base_stat.toString()}</div>
                       </div> 
                       <p className='mt-0 uppercase text-sm'>{stat.stat.name}</p>
                     </div>
