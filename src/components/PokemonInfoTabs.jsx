@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function PokemonInfoTabs({ currentPokemon }) {
+function PokemonInfoTabs({ currentPokemon, currentPokemonSpecies }) {
   const [openTab, setOpenTab] = useState(1);
   
   return (
@@ -36,7 +36,7 @@ function PokemonInfoTabs({ currentPokemon }) {
             href="#link2"
             role="tablist"
           >
-            Abilities
+            Miscellaneous
           </a>
         </li>
         <li className="-mb-px mr-2 text-slate-500 last:mr-0 flex-auto text-center">
@@ -72,15 +72,36 @@ function PokemonInfoTabs({ currentPokemon }) {
               }
             </div>
             <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-              <ul>
-                {currentPokemon.abilities.map(ability => (
-                  <li className="mt-2 uppercase">{ability.ability.name}</li>
-                ))
-                }
-              </ul>
+              <div className="flex flex-wrap justify-center gap-8 text-center">
+                <ul className="min-w-24">
+                  <li className="font-bold">Abilities</li>
+                  {currentPokemon.abilities.map(ability => (
+                    <li className="text-sm" key={ability.ability.name}>{ability.ability.name[0].toUpperCase() + ability.ability.name.slice(1)}</li>
+                  ))
+                  }
+                </ul>
+                <ul className="min-w-24">
+                  <li className="font-bold">Base Happiness</li>
+                  <li className="text-sm">{currentPokemonSpecies.base_happiness}</li>
+                </ul>
+                <ul className="min-w-24">
+                  <li className="font-bold">Capture Rate</li>
+                  <li className="text-sm">{currentPokemonSpecies.capture_rate}</li>
+                </ul>
+                <ul className="min-w-24">
+                  <li className="font-bold">Egg Groups</li>
+                  {currentPokemonSpecies.egg_groups.map(eggGroup => (
+                    <li className="text-sm">{eggGroup.name[0].toUpperCase() + eggGroup.name.slice(1)}</li>
+                  ))}
+                </ul>
+                <ul className="min-w-24">
+                  <li className="font-bold">Habitat</li>
+                  <li className="text-sm">{currentPokemonSpecies.habitat.name[0].toUpperCase() + currentPokemonSpecies.habitat.name.slice(1)}</li>
+                </ul>
+              </div>
             </div>
             <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-            <ul class="flex flex-wrap gap-4">
+            <ul className="flex flex-wrap gap-4">
               {currentPokemon.moves.map(move => (
                 <li key={move.move.name} className='uppercase text-sm border-b border-slate-400'>{move.move.name.indexOf('-') >= 0 ? move.move.name.split('-').join(' ') : move.move.name}</li>
               ))}

@@ -92,7 +92,7 @@ function PokemonInfo() {
           </div>
         </div>
         <div className='bg-white rounded-md mt-8'>
-          <PokemonInfoTabs currentPokemon={currentPokemon} />
+          <PokemonInfoTabs currentPokemon={currentPokemon} currentPokemonSpecies={currentPokemonSpecies} />
         </div>
       </section>
     </main>
