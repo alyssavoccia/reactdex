@@ -12,16 +12,3 @@
 html {
   background-color: #e2e8f0;
 }
-
-input:focus {
-  outline: none;
-}
-
-.pokeType {
-  border-radius: 20px;
-  color: #FFF;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 8px;
-  text-transform: uppercase;
-}

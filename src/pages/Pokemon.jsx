@@ -70,10 +70,10 @@ function Pokemon() {
                   <span className='flex items-center bg-gray-800 text-white font-light justify-center text-sm absolute top-2 left-2 h-8 w-8 rounded-full'>#{pokemon.id}</span>
                   <img className='mx-auto w-44' src={pokemon.sprites.front_default} alt={pokemon.name} />
                 </div>
-                <div className="cardBody">
+                <div>
                   <div className="flex gap-2 justify-center">
                     {pokemon.types.map((type, index) => (
-                      <span key={index} className="pokeType" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
+                      <span key={index} className="rounded-xl text-white text-xs py-1 px-2 uppercase" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
                     ))}
                   </div>
                   <p className="text-lg text-center mt-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
