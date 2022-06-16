@@ -4,7 +4,7 @@ import PokemonContext from './context/PokemonContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Pokemon from './pages/Pokemon';
-import PokemonInfo from './pages/pokemon-info/PokemonInfo';
+import PokemonInfo from './pages/PokemonInfo';
 import Locations from './pages/Locations';
 import Berries from './pages/Berries';
 import Moves from './pages/Moves';
@@ -42,7 +42,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen text-gray-700">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
