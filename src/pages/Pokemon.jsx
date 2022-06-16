@@ -61,7 +61,7 @@ function Pokemon() {
 
   return (
     <main>
-      <section className='container mt-8 mx-auto'>
+      <section className='flex flex-col container mt-8 mx-auto'>
         <div className="flex flex-wrap gap-8 justify-center max-w-[1300px] mx-auto">
           {pokemonList && pokemonList.map(pokemon => (
             <Link className='relative overflow-hidden shadow-lg' to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
@@ -83,7 +83,7 @@ function Pokemon() {
             </Link>
           ))}
         </div>
-        <button className='btn btnPrimary showMore' onClick={handleShowMorePokemon}>Show More</button>
+        <button className='bg-red-500 text-white border-b-4 border-red-600 hover:bg-red-600 hover:border-red-700 py-2 px-3 rounded-sm self-center mt-8' onClick={handleShowMorePokemon}>Show More</button>
       </section>
     </main>
   )
