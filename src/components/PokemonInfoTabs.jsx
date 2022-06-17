@@ -91,7 +91,7 @@ function PokemonInfoTabs({ currentPokemon, currentPokemonSpecies }) {
                 <ul className="min-w-24">
                   <li className="font-bold">Egg Groups</li>
                   {currentPokemonSpecies.egg_groups.map(eggGroup => (
-                    <li className="text-sm">{eggGroup.name[0].toUpperCase() + eggGroup.name.slice(1)}</li>
+                    <li key={eggGroup.name} className="text-sm">{eggGroup.name[0].toUpperCase() + eggGroup.name.slice(1)}</li>
                   ))}
                 </ul>
                 <ul className="min-w-24">

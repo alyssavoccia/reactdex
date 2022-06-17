@@ -17,6 +17,8 @@ function App() {
   useEffect(() => {
     const pokemonList = [];
     const pokemonSpeciesList = [];
+    const pokemonEvolutionList = [];
+
     const getAllPokemon = () => {
       for (let i = 1; i <= 151; i++) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
@@ -34,6 +36,14 @@ function App() {
           pokemonSpeciesList.push(data);
           if (pokemonSpeciesList.length === 151) {
             dispatch({ type: 'ADD_POKEMON_SPECIES', payload: pokemonSpeciesList });
+          }
+        });
+        fetch(`https://pokeapi.co/api/v2/evolution-chain/${i}/`)
+        .then(response => response.ok && response.json())
+        .then(data => {
+          pokemonEvolutionList.push(data);
+          if (pokemonEvolutionList.length === 151) {
+            dispatch({ type: 'ADD_POKEMON_EVOLUTION', payload: pokemonEvolutionList });
           }
         });
       }
