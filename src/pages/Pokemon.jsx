@@ -79,7 +79,7 @@ function Pokemon() {
                   <p className="text-lg text-center mt-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
                 </div>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-slate-500 rounded-md"></div>
+              <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-slate-100 rounded-md"></div>
             </Link>
           ))}
         </div>

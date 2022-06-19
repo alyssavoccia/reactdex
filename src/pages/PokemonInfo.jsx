@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PokemonEvolution from '../components/PokemonEvolution';
 import PokemonInfoTabs from '../components/PokemonInfoTabs';
 import PokemonContext from '../context/PokemonContext';
 
 function PokemonInfo() {
-  const { pokemon, pokemonSpecies } = useContext(PokemonContext);
+  const { pokemon, pokemonSpecies, pokemonEvolution } = useContext(PokemonContext);
   const params = useParams();
   const [currentPokemon, setCurrentPokemon] = useState(null);
   const [currentPokemonSpecies, setCurrentPokemonSpecies] = useState(null);
+  const [currentPokemonEvolution, setCurrentPokemonEvolution] = useState(null);
   const [currentHeight, setCurrentHeight] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
 
@@ -46,27 +48,28 @@ function PokemonInfo() {
     };
 
 
-    if (pokemon && pokemonSpecies) {
+    if (pokemon && pokemonSpecies && pokemonEvolution) {
       pokemon.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemon(pokemon));
+
       pokemonSpecies.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemonSpecies(pokemon));
+
+      pokemonEvolution.forEach(pokemon => params.pokemonName === pokemon.chain.species.name && setCurrentPokemonEvolution(pokemon));
+      // pokemonEvolution.forEach(pokemon => console.log(pokemon))
     }
 
-    if (currentPokemon && currentPokemonSpecies) {
+    if (currentPokemon && currentPokemonSpecies && pokemonEvolution) {
       setCurrentHeight(getHeight());
       setCurrentWeight(getWeight());
     }
-  }, [currentPokemon, currentPokemonSpecies, params, pokemon, pokemonSpecies]);
+  }, [currentPokemon, currentPokemonSpecies, params, pokemon, pokemonSpecies, pokemonEvolution]);
 
   if (!currentPokemon) {
     return <h1>Loading</h1>
   }
 
-  console.log(currentPokemon)
-  console.log(currentPokemonSpecies)
-
   return (
     <main>
-      <section className="container mt-8 mx-auto max-w-3xl">
+      <section className="container my-8 mx-auto max-w-3xl">
         <div className="flex flex-wrap gap-8 justify-center">
           <div className="bg-slate-300 rounded-md leftSide shadow-md">
             <img className='w-[250px]' src={currentPokemon.sprites.front_default} alt={currentPokemon.name} />
@@ -93,6 +96,9 @@ function PokemonInfo() {
         </div>
         <div className='bg-white rounded-md mt-8'>
           <PokemonInfoTabs currentPokemon={currentPokemon} currentPokemonSpecies={currentPokemonSpecies} />
+        </div>
+        <div className='bg-white shadow-md rounded-md mt-8 p-4'>
+          <PokemonEvolution currentPokemon={currentPokemon} currentPokemonEvolution={currentPokemonEvolution} pokemonEvolution={pokemonEvolution} pokemon={pokemon} />
         </div>
       </section>
     </main>
