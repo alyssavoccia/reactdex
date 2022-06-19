@@ -9,7 +9,7 @@ function PokemonInfo() {
   const params = useParams();
   const [currentPokemon, setCurrentPokemon] = useState(null);
   const [currentPokemonSpecies, setCurrentPokemonSpecies] = useState(null);
-  const [currentPokemonEvolution, setCurrentPokemonEvolution] = useState(null);
+  const [evolutionChain, setEvolutionChain] = useState([]);
   const [currentHeight, setCurrentHeight] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
 
@@ -53,7 +53,15 @@ function PokemonInfo() {
 
       pokemonSpecies.forEach(pokemon => params.pokemonName === pokemon.name && setCurrentPokemonSpecies(pokemon));
 
-      pokemonEvolution.forEach(pokemon => params.pokemonName === pokemon.chain.species.name && setCurrentPokemonEvolution(pokemon));
+      pokemonEvolution.forEach(pokemonGroup => {
+        pokemonGroup.forEach(pokemon => {
+          if (params.pokemonName === pokemon) {
+            setEvolutionChain(pokemonGroup);
+          }
+        });
+      });
+
+      // pokemonEvolution.forEach(pokemon => params.pokemonName === pokemon.chain.species.name && setCurrentPokemonEvolution(pokemon));
       // pokemonEvolution.forEach(pokemon => console.log(pokemon))
     }
 
@@ -98,7 +106,7 @@ function PokemonInfo() {
           <PokemonInfoTabs currentPokemon={currentPokemon} currentPokemonSpecies={currentPokemonSpecies} />
         </div>
         <div className='bg-white shadow-md rounded-md mt-8 p-4'>
-          <PokemonEvolution currentPokemon={currentPokemon} currentPokemonEvolution={currentPokemonEvolution} pokemonEvolution={pokemonEvolution} pokemon={pokemon} />
+          <PokemonEvolution currentPokemon={currentPokemon}  pokemonEvolution={pokemonEvolution} pokemon={pokemon} evolutionChain={evolutionChain} />
         </div>
       </section>
     </main>

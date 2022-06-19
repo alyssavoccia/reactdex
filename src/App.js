@@ -41,10 +41,26 @@ function App() {
         fetch(`https://pokeapi.co/api/v2/evolution-chain/${i}/`)
         .then(response => response.ok && response.json())
         .then(data => {
-          pokemonEvolutionList.push(data);
-          if (pokemonEvolutionList.length === 151) {
-            dispatch({ type: 'ADD_POKEMON_EVOLUTION', payload: pokemonEvolutionList });
-          }
+          const evolutionChain = [];
+          let evolutionData = data.chain;
+
+          do {
+            const numberOfEvolutions = evolutionData['evolves_to'].length;
+
+            evolutionChain.push(evolutionData.species.name);
+
+            if (numberOfEvolutions > 1) {
+              for (let i = 1; i < numberOfEvolutions; i++) {
+                evolutionChain.push(evolutionData.evolves_to[i].species.name);
+              }
+            }
+
+            evolutionData = evolutionData['evolves_to'][0];
+          } while (!!evolutionData && evolutionData.hasOwnProperty('evolves_to'));
+
+          pokemonEvolutionList.push(evolutionChain);
+
+          dispatch({ type: 'ADD_POKEMON_EVOLUTION', payload: pokemonEvolutionList});
         });
       }
     }
