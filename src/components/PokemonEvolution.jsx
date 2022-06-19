@@ -17,7 +17,7 @@ function PokemonEvolution({ currentPokemon, pokemon, evolutionChain }) {
         {pokemonChain.map(pokemon => (
           <li key={pokemon.name}>
             <div className="flex flex-col mt-0.5 ml-4 md:ml-0 pb-5 items-center">
-              <h4 className="text-slate-700 font-semibold text-xl mb-1.5">{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h4>
+              <h4 className={`${currentPokemon.species.name === pokemon.name ? 'text-slate-700' : 'text-slate-400'} font-semibold text-xl mb-1.5`}>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h4>
               <img className='w-40' src={pokemon.sprite} alt={`${pokemon.name}`} />
             </div>
           </li>

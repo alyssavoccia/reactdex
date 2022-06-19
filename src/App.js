@@ -68,7 +68,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="h-screen text-gray-700 mx-4">
+    <div className="h-full text-gray-700">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

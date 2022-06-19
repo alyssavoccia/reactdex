@@ -64,7 +64,7 @@ function PokemonInfoTabs({ currentPokemon, currentPokemonSpecies }) {
               {currentPokemon.stats.map(stat => (
                 <div className='mb-4' key={stat.stat.name}>
                   <div key={stat.stat.name} className="w-full bg-gray-200 rounded-full">
-                    <div className="bg-slate-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-l-full" style={{width: `${stat.base_stat.toString()}%`}}> {stat.base_stat.toString()}</div>
+                    <div className={`bg-slate-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-l-full ${stat.base_stat >= 100 && 'rounded-r-full'}`} style={{width: `${stat.base_stat > 100 ? '100%' : stat.base_stat.toString()}%`}}> {stat.base_stat.toString()}</div>
                   </div> 
                   <p className='mt-0 uppercase text-sm'>{stat.stat.name.indexOf('-') >= 0 ? stat.stat.name.split('-').join(' ') : stat.stat.name}</p>
                 </div>

@@ -60,9 +60,6 @@ function PokemonInfo() {
           }
         });
       });
-
-      // pokemonEvolution.forEach(pokemon => params.pokemonName === pokemon.chain.species.name && setCurrentPokemonEvolution(pokemon));
-      // pokemonEvolution.forEach(pokemon => console.log(pokemon))
     }
 
     if (currentPokemon && currentPokemonSpecies && pokemonEvolution) {
@@ -72,11 +69,12 @@ function PokemonInfo() {
   }, [currentPokemon, currentPokemonSpecies, params, pokemon, pokemonSpecies, pokemonEvolution]);
 
   if (!currentPokemon) {
+    // UPDATE THIS
     return <h1>Loading</h1>
   }
 
   return (
-    <main>
+    <main className='w-[95%] mx-auto mb-8'>
       <section className="container my-8 mx-auto max-w-3xl">
         <div className="flex flex-wrap gap-8 justify-center">
           <div className="bg-slate-300 rounded-md leftSide shadow-md">

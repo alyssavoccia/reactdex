@@ -60,7 +60,7 @@ function Pokemon() {
   }
 
   return (
-    <main>
+    <main className='mb-8'>
       <section className='flex flex-col container mt-8 mx-auto'>
         <div className="flex flex-wrap gap-8 justify-center max-w-[1300px] mx-auto">
           {pokemonList && pokemonList.map(pokemon => (
@@ -76,7 +76,7 @@ function Pokemon() {
                       <span key={index} className="rounded-xl text-white text-xs py-1 px-2 uppercase" style={{backgroundColor: `${pokemonTypeColors[pokemon.types[index].type.name]}`}}>{type.type.name}</span>
                     ))}
                   </div>
-                  <p className="text-lg text-center mt-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
+                  <p className="text-lg text-center my-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
                 </div>
               </div>
               <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-slate-100 rounded-md"></div>
