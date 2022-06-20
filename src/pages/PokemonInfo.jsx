@@ -85,7 +85,7 @@ function PokemonInfo() {
             <p className="font-bold text-2xl">{currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1)}</p>
             <div className="flex gap-2 mt-2">
               {currentPokemon.types.map((type, index) => (
-                <span key={index} className='rounded-xl text-white text-xs py-1 px-2 uppercase' style={{backgroundColor: `${pokemonTypeColors[type.type.name]}`}}>{type.type.name}</span>
+                <Link to={`/pokemon/pokemon-type/${type.type.name}`} key={index} className='rounded-xl text-white text-xs py-1 px-2 uppercase' style={{backgroundColor: `${pokemonTypeColors[type.type.name]}`}}>{type.type.name}</Link>
               ))}
             </div>
             <p className="mt-5">{currentPokemonSpecies.flavor_text_entries[0].flavor_text}</p>
