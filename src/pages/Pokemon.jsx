@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import PokemonContext from '../context/PokemonContext';
+import Spinner from '../components/Spinner';
 
 function Pokemon() {
   const { pokemon } = useContext(PokemonContext);
@@ -55,8 +56,7 @@ function Pokemon() {
   };
 
   if (loading) {
-    // UPDATE THIS
-    return <h1>Loading</h1>
+    return <Spinner />
   }
 
   return (

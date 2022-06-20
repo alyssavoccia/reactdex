@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PokemonEvolution from '../components/PokemonEvolution';
 import PokemonInfoTabs from '../components/PokemonInfoTabs';
+import Spinner from '../components/Spinner';
 import PokemonContext from '../context/PokemonContext';
 
 function PokemonInfo() {
@@ -69,8 +70,7 @@ function PokemonInfo() {
   }, [currentPokemon, currentPokemonSpecies, params, pokemon, pokemonSpecies, pokemonEvolution]);
 
   if (!currentPokemon) {
-    // UPDATE THIS
-    return <h1>Loading</h1>
+    return <Spinner />
   }
 
   return (
