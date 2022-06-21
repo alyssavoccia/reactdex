@@ -8,7 +8,7 @@ function PokemonType() {
   const { pokemon } = useContext(PokemonContext);
   const params = useParams();
   const [loading, setLoading] = useState(true);
-  const pokemonPerPage = 20;
+  const [pokemonPerPage, setPokemonPerPage] = useState(0);
   const [pokemonList, setPokemonList] = useState([]);
   const [next, setNext] = useState(20);
   const pokemonTypeList = [];
@@ -22,7 +22,8 @@ function PokemonType() {
   };
 
   useEffect(() => {
-    if (pokemon.length > 0) {
+    if (pokemon) {
+      setPokemonList([]);
       // Sort pokemon so they are in order by id #
       pokemon.sort((a, b) => a.id - b.id);
       // Filter pokemon to selected type
@@ -32,11 +33,12 @@ function PokemonType() {
         });
       });
       // Set first 20 pokemon to be shown
+      pokemonTypeList.length < 20 ? setPokemonPerPage(pokemonTypeList.length) : setPokemonPerPage(20);
       setPokemonList(pokemonTypeList.slice(0, pokemonPerPage));
       setLoading(false);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [params.pokemonType, pokemon, pokemonPerPage]);
 
   const handleShowMorePokemon = () => {
     let loadedMore = next + pokemonPerPage;
@@ -53,7 +55,7 @@ function PokemonType() {
     <section className='flex flex-col container mt-8 mx-auto'>
       <div className="flex flex-wrap gap-8 justify-center max-w-[1300px] mx-auto">
         {pokemonList && pokemonList.map(pokemon => (
-          <PokemonCard key={pokemon.species.name + 1} pokemon={pokemon} />
+          <PokemonCard key={pokemon.species.name} pokemon={pokemon} />
         ))}
       </div>
       <button disabled={next >= pokemonTypeList ? true : false} className={`${next >= pokemonTypeList ? 'bg-gray-400 border-gray-600' : 'bg-red-500 border-red-600 hover:bg-red-600 hover:border-red-700'} text-white border-b-4 py-2 px-3 rounded-sm self-center mt-8`} onClick={handleShowMorePokemon}>Show More</button>
