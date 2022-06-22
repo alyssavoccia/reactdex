@@ -43,7 +43,7 @@ function Pokemon() {
       <section className='flex flex-col container  max-w-[1300px] mt-8 mx-auto'>
         <input className='text-sm w-72 py-2 p-4 mb-8 rounded-sm focus:outline-none' type="text" placeholder="Search Pokemon" />
         <div className="flex flex-wrap gap-8 justify-center mx-auto">
-          {pokemonList && pokemonList.map(pokemon => (
+          {pokemonList.map(pokemon => (
             <PokemonCard key={pokemon.species.name} pokemon={pokemon} />
           ))}
         </div>

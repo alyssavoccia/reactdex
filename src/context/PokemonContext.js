@@ -7,7 +7,8 @@ export const PokemonProvider = ({ children }) => {
   const initialState = {
     pokemon: [],
     pokemonSpecies: [],
-    pokemonEvolution: []
+    pokemonEvolution: [],
+    moves: []
   };
 
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
