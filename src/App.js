@@ -64,8 +64,25 @@ function App() {
           dispatch({ type: 'ADD_POKEMON_EVOLUTION', payload: pokemonEvolutionList});
         });
       }
-    }
+    };
+
+    const getMoves = () => {
+      const moveList = [];
+      for (let i = 1; i <= 165; i++) {
+        fetch(`https://pokeapi.co/api/v2/move/${i}`)
+        .then(response => response.ok && response.json())
+        .then(data => {
+          moveList.push(data);
+          if (moveList.length === 165) {
+            dispatch({ type: 'ADD_POKEMON_MOVES', payload: moveList });
+          }
+        })
+        .catch(error => console.log(error));
+      }
+    };
+
     getAllPokemon();
+    getMoves();
   }, [dispatch]);
 
   return (
