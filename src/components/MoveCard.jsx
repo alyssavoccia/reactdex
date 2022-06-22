@@ -31,10 +31,10 @@ function MoveCard({ move }) {
   };
 
   return (
-    <Link className='relative overflow-hidden shadow-lg' to={`/moves/${move.name}`} key={move.name}>
-      <div className="flex flex-col bg-white items-center px-4 py-4 rounded-md w-52 shadow-md hover:shadow-lg cursor-pointer">
+    <Link className='relative overflow-hidden shadow-md hover:shadow-lg' to={`/moves/${move.name}`} key={move.name}>
+      <div className="flex flex-col bg-white items-center px-4 py-4 rounded-md w-52">
         <span className={`text-white text-xs px-2 rounded-full uppercase font-light tracking-wide text-center self-end`} style={{backgroundColor: `${moveTypeColors[move.type.name]}`}}>{move.type.name}</span>
-        <p className="mt-4 font-bold text-slate-500">{moveCapitalName()}</p>
+        <p className="mt-2 font-bold text-slate-500">{moveCapitalName()}</p>
         <p><span className="font-semibold">Power: </span>{move.power ? move.power : 'N/A'}</p>
         <p><span className="font-semibold">Power Points: </span>{move.pp ? move.pp : 'N/A'}</p>
       </div>
