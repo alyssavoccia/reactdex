@@ -23,7 +23,7 @@ function PokemonCard({ pokemon }) {
   };
 
   return (
-    <Link className='relative overflow-hidden shadow-lg' to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
+    <Link className='relative overflow-hidden shadow-md hover:shadow-lg' to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
       <div className='flex flex-col rounded-md w-[300px]' style={{background: `radial-gradient(circle at 50% 0%, ${pokemonTypeColors[pokemon.types[0].type.name]} 36%, #FFF 36%)`}}>
         <div>
           <span className='flex items-center bg-gray-800 text-white font-light justify-center text-sm absolute top-2 left-2 h-8 w-8 rounded-full'>#{pokemon.id}</span>
@@ -38,7 +38,6 @@ function PokemonCard({ pokemon }) {
           <p className="text-lg text-center my-4">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
         </div>
       </div>
-      <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-slate-100 rounded-md"></div>
     </Link>
   )
 }

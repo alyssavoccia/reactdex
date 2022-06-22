@@ -11,6 +11,7 @@ import Moves from './pages/Moves';
 import Abilities from './pages/Abilities';
 import Items from './pages/Items';
 import PokemonType from './pages/PokemonType';
+import MoveInfo from './pages/MoveInfo';
 
 function App() {
   const { dispatch } = useContext(PokemonContext);
@@ -96,6 +97,7 @@ function App() {
         <Route path='/locations' element={<Locations />} />
         <Route path='/berries' element={<Berries />} />
         <Route path='/moves' element={<Moves />} />
+        <Route path='/moves/:pokemonName' element={<MoveInfo />} />
         <Route path='/abilities' element={<Abilities />} />
         <Route path='/items' element={<Items />} />
       </Routes>
