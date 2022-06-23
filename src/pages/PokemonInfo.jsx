@@ -74,11 +74,11 @@ function PokemonInfo() {
   }
 
   return (
-    <main className='w-[95%] mx-auto mb-8'>
+    <main className='max-w-[95%] mx-auto mb-8'>
       <section className="container my-8 mx-auto max-w-3xl">
         <Link className='bg-red-500 text-white border-b-4 border-red-600 hover:bg-red-600 hover:border-red-700 py-2 px-3 rounded-sm self-center' to='/pokemon'>{'\u2190'} Back to All Pokemon</Link>
         <div className="flex flex-wrap gap-8 justify-center mt-8">
-          <div className="bg-slate-300 rounded-md leftSide shadow-md">
+          <div className="bg-slate-300 flex items-center rounded-md leftSide shadow-md">
             <img className='w-[250px]' src={currentPokemon.sprites.front_default} alt={currentPokemon.name} />
           </div>
           <div className="flex flex-col flex-1 py-4 px-4 bg-white rounded-md max-w-[500px] shadow-md">

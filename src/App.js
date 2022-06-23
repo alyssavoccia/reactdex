@@ -97,7 +97,7 @@ function App() {
         <Route path='/locations' element={<Locations />} />
         <Route path='/berries' element={<Berries />} />
         <Route path='/moves' element={<Moves />} />
-        <Route path='/moves/:pokemonName' element={<MoveInfo />} />
+        <Route path='/moves/:moveName' element={<MoveInfo />} />
         <Route path='/abilities' element={<Abilities />} />
         <Route path='/items' element={<Items />} />
       </Routes>
