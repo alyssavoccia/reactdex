@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import PokemonContext from '../context/PokemonContext';
 import Spinner from '../components/Spinner';
 import PokemonCard from '../components/PokemonCard';
@@ -57,8 +57,9 @@ function MoveInfo() {
 
   return (
     <main className='max-w-[95%] mx-auto mb-8'>
-      <section className="container my-8 mx-auto max-w-3xl">
-        <div className="p-8 bg-white rounded-md shadow-md max-w-[630px] mx-auto">
+      <section className="container my-8 mx-auto max-w-[635px]">
+        <Link className='bg-red-500 text-white border-b-4 border-red-600 hover:bg-red-600 hover:border-red-700 py-2 px-3 rounded-sm ml-1 self-center' to='/moves'>{'\u2190'} Back to All Moves</Link>
+        <div className="p-8 bg-white rounded-md shadow-md mt-8 max-w-[630px] mx-auto">
           <div className='flex items-center'>
             <h1 className='text-slate-600 text-2xl font-bold'>{moveCapitalName(currentMove.name)}</h1>
             <span className='ml-4 text-white text-xs px-2 py-1 rounded-full uppercase font-light tracking-wide text-center' style={{backgroundColor: `${moveTypeColors[currentMove.type.name]}`}}>Normal</span>
