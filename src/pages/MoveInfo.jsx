@@ -62,7 +62,7 @@ function MoveInfo() {
         <div className="p-8 bg-white rounded-md shadow-md mt-8 max-w-[630px] mx-auto">
           <div className='flex items-center'>
             <h1 className='text-slate-600 text-2xl font-bold'>{moveCapitalName(currentMove.name)}</h1>
-            <span className='ml-4 text-white text-xs px-2 py-1 rounded-full uppercase font-light tracking-wide text-center' style={{backgroundColor: `${moveTypeColors[currentMove.type.name]}`}}>Normal</span>
+            <span className='ml-4 text-white text-xs px-2 py-1 rounded-full uppercase font-light tracking-wide text-center' style={{backgroundColor: `${moveTypeColors[currentMove.type.name]}`}}>{currentMove.type.name}</span>
           </div>
           <p className='mt-2 font-light'>{currentMove.flavor_text_entries[2].flavor_text.replace(/\n/g, ' ')}</p>
           <div className='mt-8 flex flex-wrap gap-8 justify-center'>
@@ -92,7 +92,7 @@ function MoveInfo() {
             </div>
           </div>
         </div>
-        <p className='text-center mt-8 bg-slate-600 text-white max-w-[630px] rounded-md shadow-md mx-auto py-4'>Learned By</p>
+        <p className='text-center mt-8 text-white bg-slate-600 font-bold max-w-[630px] rounded-md shadow-md mx-auto py-4' >Learned By</p>
         <div className='flex flex-wrap gap-8 mt-4 justify-center'>
           {currentMove.learned_by_pokemon.map(movePokemon => (
             pokemon.map(pokemon => (
