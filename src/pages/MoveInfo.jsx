@@ -24,6 +24,12 @@ function MoveInfo() {
     }
   };
 
+  const capitalGeneration = (generation) => {
+    generation = generation[0].toUpperCase() + generation.slice(1).replace('-', ' ');
+    generation = generation.split(' ');
+    return `${generation[0]}  ${generation[1].toUpperCase()}`;
+  }
+
   const moveTypeColors = {
     bug: "#A3CB38",
     dark: "#705848",
@@ -53,24 +59,35 @@ function MoveInfo() {
     <main className='max-w-[95%] mx-auto mb-8'>
       <section className="container my-8 mx-auto max-w-3xl">
         <div className="p-8 bg-white rounded-md shadow-md max-w-[630px] mx-auto">
-          {console.log(currentMove)}
           <div className='flex items-center'>
             <h1 className='text-slate-600 text-2xl font-bold'>{moveCapitalName(currentMove.name)}</h1>
             <span className='ml-4 text-white text-xs px-2 py-1 rounded-full uppercase font-light tracking-wide text-center' style={{backgroundColor: `${moveTypeColors[currentMove.type.name]}`}}>Normal</span>
           </div>
           <p className='mt-2 font-light'>{currentMove.flavor_text_entries[2].flavor_text.replace(/\n/g, ' ')}</p>
-          <div className='mt-8 flex flex-wrap gap-8'>
+          <div className='mt-8 flex flex-wrap gap-8 justify-center'>
             <div className='text-center'>
-              <p>Accuracy</p>
+              <p className='font-semibold'>Accuracy</p>
               <p>{currentMove.accuracy}</p>
             </div>
             <div className='text-center'>
-              <p>Damage Class</p>
+              <p className='font-semibold'>Damage Class</p>
               <p>{currentMove.damage_class.name[0].toUpperCase() + currentMove.damage_class.name.slice(1)}</p>
             </div>
             <div className='text-center'>
-              <p>Generation</p>
-              <p>{currentMove.generation.name[0].toUpperCase() + currentMove.generation.name.slice(1).replace('-', ' ')}</p>
+              <p className='font-semibold'>Generation</p>
+              <p>{capitalGeneration(currentMove.generation.name)}</p>
+            </div>
+            <div className='text-center'>
+              <p className='font-semibold'>Contest Type</p>
+              <p>{currentMove.contest_type.name[0].toUpperCase() + currentMove.contest_type.name.slice(1)}</p>
+            </div>
+            <div className='text-center'>
+              <p className='font-semibold'>Power</p>
+              <p>{currentMove.power}</p>
+            </div>
+            <div className='text-center'>
+              <p className='font-semibold'>Power Points</p>
+              <p>{currentMove.pp}</p>
             </div>
           </div>
         </div>
