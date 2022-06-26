@@ -34,6 +34,12 @@ function Pokemon() {
     setNext(next + pokemonPerPage);
   };
 
+  const handleChange = e => {
+    setPokemonList([]);
+    pokemon.filter(pokemon => pokemon.name.includes(e.target.value) && setPokemonList(prevState => [...prevState, pokemon]))
+    // pokemonList.filter()
+  }
+
   if (loading) {
     return <Spinner />
   }
@@ -41,7 +47,7 @@ function Pokemon() {
   return (
     <main className='mb-8'>
       <section className='flex flex-col container  max-w-[1300px] mt-8 mx-auto'>
-        <input className='text-sm w-72 py-2 p-4 mb-8 self-center rounded-sm focus:outline-none' type="text" placeholder="Search Pokemon" />
+        <input className='text-sm w-72 py-2 p-4 mb-8 self-center rounded-sm focus:outline-none' type="text" placeholder="Search Pokemon" onChange={handleChange} />
         <div className="flex flex-wrap gap-8 justify-center mx-auto">
           {pokemonList.map(pokemon => (
             <PokemonCard key={pokemon.species.name} pokemon={pokemon} />
